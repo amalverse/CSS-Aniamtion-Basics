@@ -1,0 +1,215 @@
+/* This is the CSS file, it tells the browser how to make the website look */
+
+/* This styles the whole page (the body) */
+body {
+  display: flex; /* Makes it easy to center things */
+  justify-content: center; /* Centers things horizontally */
+  align-items: center; /* Centers things vertically */
+  height: 100vh; /* Makes sure it takes up the whole screen */
+  background-color: white; /* Sets the background color to white */
+}
+
+/* This styles the "playground" (the main area where things are happening) */
+.playground {
+  position: relative; /* Lets us move things around inside it */
+  width: 300px; /* Sets the width to 300 pixels */
+  height: 300px; /* Sets the height to 300 pixels */
+  background-color: lightgray; /* Sets the background color to light gray */
+  display: flex; /* Again, makes it easy to center things */
+  justify-content: center; /* Centers things horizontally */
+  align-items: center; /* Centers things vertically */
+}
+
+/* This styles the "box" (the green box) */
+.box {
+  width: 200px; /* Sets the width to 200 pixels */
+  height: 200px; /* Sets the height to 200 pixels */
+  background-color: lightgreen; /* Sets the background color to light green */
+  display: flex; /* Makes it easy to center things */
+  justify-content: center; /* Centers things horizontally */
+  align-items: center; /* Centers things vertically */
+}
+
+/* This styles the "light" (the black rectangle with the circles) */
+.light {
+  width: 50px; /* Sets the width to 50 pixels */
+  height: 120px; /* Sets the height to 120 pixels */
+  background-color: black; /* Sets the background color to black */
+  display: flex; /* Makes it easy to arrange things inside */
+  flex-direction: column; /* Arranges things in a column (top to bottom) */
+  justify-content: space-around; /* Spaces the circles evenly */
+  align-items: center; /* Centers the circles horizontally */
+  padding: 10px; /* Adds some space around the circles */
+  border-radius: 10px; /* Makes the corners rounded */
+}
+
+/* This styles the circles inside the "light" */
+.light div {
+  width: 30px; /* Sets the width to 30 pixels */
+  height: 30px; /* Sets the height to 30 pixels */
+  border-radius: 50%; /* Makes it a circle */
+  background-color: transparent; /* Makes the inside see-through */
+  border: 5px solid black; /* Adds a black border */
+}
+
+/* These change the border color of the circles - made more specific */
+.red {
+  border-color: red !important; /* Makes the border red */
+  box-shadow: inset 0 0 10px 4px red; /* Adds a red glow inside */
+  animation-name: redLight, redLightStop; /* Uses two animations */
+  animation-duration: 3s, 1s; /* First animation lasts 3 seconds, second lasts 1 second */
+  animation-delay: 0s, 10s; /* Second animation starts after 10 seconds */
+  animation-fill-mode: none, forwards; /* Keeps the final state of the second animation */
+}
+
+.yellow {
+  border-color: yellow !important; /* Makes the border yellow */
+  box-shadow: inset 0 0 10px 4px yellow; /* Adds a yellow glow inside */
+  animation-name: yellowLight; /* Uses the yellowLight animation */
+  animation-duration: 2s; /* Animation lasts 2 seconds */
+  animation-delay: 3s; /* Animation starts after 3 seconds */
+}
+
+.green {
+  border-color: green !important; /* Makes the border green */
+  box-shadow: inset 0 0 10px 4px green; /* Adds a green glow inside */
+  animation-name: greenLight; /* Uses the greenLight animation */
+  animation-duration: 5s; /* Animation lasts 5 seconds */
+  animation-delay: 5s; /* Animation starts after 5 seconds */
+}
+
+/* This styles the car image */
+.playground img {
+  position: absolute; /* Lets us put it anywhere in the playground */
+  top: 10px; /* Puts it 10 pixels from the top */
+  left: 10px; /* Puts it 10 pixels from the left */
+  width: 50px; /* Sets the width to 50 pixels */
+  animation-name: yellowLightCarMove, carMove; /* Uses two animations */
+  animation-duration: 2s, 5s; /* First animation lasts 2 seconds, second lasts 5 seconds */
+  animation-iteration-count: 1, 1; /* Each animation runs once */
+  animation-delay: 3s, 5s; /* Second animation starts after 5 seconds */
+}
+
+/* This is the animation that moves the car */
+@keyframes carMove {
+  0% {
+    top: 10px; /* Starts at 10 pixels from the top */
+    left: 10px; /* Starts at 10 pixels from the left */
+    transform: rotate(0deg); /* Makes the car face right */
+  }
+  24.99% {
+    transform: rotate(0deg); /* Keeps the car facing right */
+  }
+  25% {
+    top: 10px; /* Stays at 10 pixels from the top */
+    left: 240px; /* Moves to 240 pixels from the left */
+    transform: rotate(90deg); /* Makes the car face down */
+  }
+  49.99% {
+    transform: rotate(90deg); /* Keeps the car facing down */
+  }
+  50% {
+    top: 260px; /* Moves to 260 pixels from the top */
+    left: 240px; /* Stays at 240 pixels from the left */
+    transform: rotate(180deg); /* Makes the car face left */
+  }
+  74.99% {
+    transform: rotate(180deg); /* Keeps the car facing left */
+  }
+  75% {
+    top: 260px; /* Stays at 260 pixels from the top */
+    left: 10px; /* Moves to 10 pixels from the left */
+    transform: rotate(270deg); /* Makes the car face up */
+  }
+  99.99% {
+    transform: rotate(270deg); /* Keeps the car facing up */
+  }
+  100% {
+    top: 10px; /* Moves back to 10 pixels from the top */
+    left: 10px; /* Moves back to 10 pixels from the left */
+    transform: rotate(0deg); /* Makes the car face right again */
+  }
+}
+
+/* This is the animation for the red light */
+@keyframes redLight {
+  0% {
+    background-color: red; /* Starts with red background */
+  }
+  100% {
+    background-color: red; /* Ends with red background */
+  }
+}
+
+/* This is the animation for the yellow light */
+@keyframes yellowLight {
+  0% {
+    background-color: yellow; /* Starts with yellow background */
+  }
+  100% {
+    background-color: yellow; /* Ends with yellow background */
+  }
+}
+
+/* This is the animation for the green light */
+@keyframes greenLight {
+  0% {
+    background-color: green; /* Starts with green background */
+  }
+  100% {
+    background-color: green; /* Ends with green background */
+  }
+}
+
+/* This is the animation for the car moving when the yellow light is on */
+@keyframes yellowLightCarMove {
+  0% {
+    left: 10px; /* Starts at 10 pixels from the left */
+  }
+  50% {
+    left: 30px; /* Moves to 30 pixels from the left */
+  }
+  100% {
+    left: 10px; /* Moves back to 10 pixels from the left */
+  }
+}
+
+/* This is the animation for the red light stopping */
+@keyframes redLightStop {
+  0% {
+    background-color: red; /* Starts with red background */
+  }
+  100% {
+    background-color: red; /* Ends with red background */
+  }
+}
+
+.small-box{
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  position: absolute;
+  top: 80%;
+  left: 0;
+  animation-name: moveBox;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.small-box:hover{
+  animation-play-state: paused;
+}
+
+@keyframes moveBox {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 40%;
+  }
+  100% {
+    left: 80%;
+  }
+  
+}
